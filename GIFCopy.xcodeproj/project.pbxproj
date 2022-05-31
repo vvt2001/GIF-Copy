@@ -16,6 +16,7 @@
 		E4B1904D284064F800202F33 /* GIFCopyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1904C284064F800202F33 /* GIFCopyTests.swift */; };
 		E4B19057284064F800202F33 /* GIFCopyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B19056284064F800202F33 /* GIFCopyUITests.swift */; };
 		E4B19059284064F800202F33 /* GIFCopyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B19058284064F800202F33 /* GIFCopyUITestsLaunchTests.swift */; };
+		E4B19066284085EA00202F33 /* PHAssetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B19065284085E900202F33 /* PHAssetExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E4B19052284064F800202F33 /* GIFCopyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GIFCopyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B19056284064F800202F33 /* GIFCopyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFCopyUITests.swift; sourceTree = "<group>"; };
 		E4B19058284064F800202F33 /* GIFCopyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFCopyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E4B19065284085E900202F33 /* PHAssetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAssetExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				E4B19037284064F500202F33 /* SceneDelegate.swift */,
 				E4B19039284064F500202F33 /* ViewController.swift */,
 				E4B1903B284064F500202F33 /* Main.storyboard */,
+				E4B19065284085E900202F33 /* PHAssetExtension.swift */,
 				E4B1903E284064F700202F33 /* Assets.xcassets */,
 				E4B19040284064F700202F33 /* LaunchScreen.storyboard */,
 				E4B19043284064F700202F33 /* Info.plist */,
@@ -260,6 +263,7 @@
 			files = (
 				E4B1903A284064F500202F33 /* ViewController.swift in Sources */,
 				E4B19036284064F500202F33 /* AppDelegate.swift in Sources */,
+				E4B19066284085EA00202F33 /* PHAssetExtension.swift in Sources */,
 				E4B19038284064F500202F33 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
