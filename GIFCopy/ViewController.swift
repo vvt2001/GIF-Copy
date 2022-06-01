@@ -16,7 +16,28 @@ class ViewController: UIViewController {
     private var videoAVAsset: AVAsset?
     private var playerLooper: AVPlayerLooper?
     
-    private func loadAssetFromPhotos(handleClosure: @escaping (() -> Void)){
+    func setupLoopVideoView(){
+        let randomVideoAssets = self.videoPHAssets.randomElement()
+        randomVideoAssets?.getAVAsset(completionHandler: { asset in
+            //setup player
+            let playerItem = AVPlayerItem(asset: asset!)
+            let randomVideoPlayer = AVQueuePlayer(playerItem: playerItem)
+            let playerLayer = AVPlayerLayer(player: randomVideoPlayer)
+            
+            //setup player layer layout
+            playerLayer.frame = self.videoView.bounds
+            playerLayer.videoGravity = .resize
+            self.videoView.layer.addSublayer(playerLayer)
+            
+            //loop with queue player
+            self.playerLooper = AVPlayerLooper(player: randomVideoPlayer, templateItem: playerItem)
+            
+            //play video
+            randomVideoPlayer.play()
+        })
+    }
+    
+    private func loadAssetFromPhotos(){
         PHPhotoLibrary.requestAuthorization{ status in
             if status == .authorized {
                 let videoAssets = PHAsset.fetchAssets(with: PHAssetMediaType.video, options: nil)
@@ -24,7 +45,7 @@ class ViewController: UIViewController {
                     self.videoPHAssets.append(object)
                 }
                 DispatchQueue.main.async {
-                    handleClosure()
+                    self.setupLoopVideoView()
                 }
             }
         }
@@ -33,28 +54,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let playLoopVideo = {
-            let randomVideoAssets = self.videoPHAssets.randomElement()
-            randomVideoAssets?.getAVAsset(completionHandler: { asset in
-                //setup player
-                let playerItem = AVPlayerItem(asset: asset!)
-                let randomVideoPlayer = AVQueuePlayer(playerItem: playerItem)
-                let playerLayer = AVPlayerLayer(player: randomVideoPlayer)
-                
-                //setup player layer layout
-                playerLayer.frame = self.videoView.bounds
-                playerLayer.videoGravity = .resize
-                self.videoView.layer.addSublayer(playerLayer)
-                
-                //loop with queue player
-                self.playerLooper = AVPlayerLooper(player: randomVideoPlayer, templateItem: playerItem)
-                
-                //play video
-                randomVideoPlayer.play()
-            })
-        }
-        
-        loadAssetFromPhotos(handleClosure: playLoopVideo)
+        loadAssetFromPhotos()
     }
 }
 
