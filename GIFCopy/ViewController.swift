@@ -54,10 +54,16 @@ class ViewController: UIViewController {
         }
     }
     
+    private func setupCollectionViews(){
+        tabBarCollectionView.delegate = self
+        tabBarCollectionView.dataSource = self
+        self.tabBarCollectionView.register(UINib(nibName: "TabBarCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "TabBarCollectionViewCell")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         loadAssetFromPhotos()
+        setupCollectionViews()
     }
 }
 
