@@ -11,6 +11,9 @@ import Photos
 
 class ViewController: UIViewController {
     @IBOutlet private weak var videoView: UIView!
+    @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet private weak var tabBarCollectionView: UICollectionView!
+    @IBOutlet private weak var saveButton: UIButton!
     
     private var videoPHAssets = [PHAsset]()
     private var videoAVAsset: AVAsset?
@@ -51,10 +54,35 @@ class ViewController: UIViewController {
         }
     }
     
+    private func setupCollectionViews(){
+        tabBarCollectionView.delegate = self
+        tabBarCollectionView.dataSource = self
+        self.tabBarCollectionView.register(UINib(nibName: "TabBarCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "TabBarCollectionViewCell")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         loadAssetFromPhotos()
+        setupCollectionViews()
     }
 }
 
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 13
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabBarCollectionViewCell", for: indexPath) as! TabBarCollectionViewCell
+        cell.createCell(index: indexPath.row)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = collectionView.bounds.height - 12
+        return CGSize(width: size, height: size)
+    }
+    
+    
+}
