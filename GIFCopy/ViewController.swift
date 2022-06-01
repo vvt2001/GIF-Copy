@@ -10,7 +10,7 @@ import AVFoundation
 import Photos
 
 class ViewController: UIViewController {
-    @IBOutlet weak var videoView: UIView!
+    @IBOutlet private weak var videoView: UIView!
     
     private var videoPHAssets = [PHAsset]()
     private var videoAVAsset: AVAsset?
