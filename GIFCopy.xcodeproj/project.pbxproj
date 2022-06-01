@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E453D8E72846FEA800599CCF /* TabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E453D8E52846FEA800599CCF /* TabBarCollectionViewCell.swift */; };
+		E453D8E82846FEA800599CCF /* TabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E453D8E62846FEA800599CCF /* TabBarCollectionViewCell.xib */; };
+		E49006E12846FAE2003F7A42 /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E49006E02846FAE2003F7A42 /* Montserrat-VariableFont_wght.ttf */; };
 		E4B19036284064F500202F33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B19035284064F500202F33 /* AppDelegate.swift */; };
 		E4B19038284064F500202F33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B19037284064F500202F33 /* SceneDelegate.swift */; };
 		E4B1903A284064F500202F33 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B19039284064F500202F33 /* ViewController.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E453D8E52846FEA800599CCF /* TabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCollectionViewCell.swift; sourceTree = "<group>"; };
+		E453D8E62846FEA800599CCF /* TabBarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarCollectionViewCell.xib; sourceTree = "<group>"; };
+		E49006E02846FAE2003F7A42 /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-VariableFont_wght.ttf"; path = "../../../../../Downloads/Montserrat/Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		E4B19032284064F500202F33 /* GIFCopy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIFCopy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B19035284064F500202F33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4B19037284064F500202F33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E49006DD2846FA85003F7A42 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E49006E02846FAE2003F7A42 /* Montserrat-VariableFont_wght.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E4B19029284064F500202F33 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +120,9 @@
 				E4B19039284064F500202F33 /* ViewController.swift */,
 				E4B1903B284064F500202F33 /* Main.storyboard */,
 				E4B19065284085E900202F33 /* PHAssetExtension.swift */,
+				E453D8E52846FEA800599CCF /* TabBarCollectionViewCell.swift */,
+				E453D8E62846FEA800599CCF /* TabBarCollectionViewCell.xib */,
+				E49006DD2846FA85003F7A42 /* Fonts */,
 				E4B1903E284064F700202F33 /* Assets.xcassets */,
 				E4B19040284064F700202F33 /* LaunchScreen.storyboard */,
 				E4B19043284064F700202F33 /* Info.plist */,
@@ -236,7 +253,9 @@
 			files = (
 				E4B19042284064F700202F33 /* LaunchScreen.storyboard in Resources */,
 				E4B1903F284064F700202F33 /* Assets.xcassets in Resources */,
+				E453D8E82846FEA800599CCF /* TabBarCollectionViewCell.xib in Resources */,
 				E4B1903D284064F500202F33 /* Main.storyboard in Resources */,
+				E49006E12846FAE2003F7A42 /* Montserrat-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B1903A284064F500202F33 /* ViewController.swift in Sources */,
+				E453D8E72846FEA800599CCF /* TabBarCollectionViewCell.swift in Sources */,
 				E4B19036284064F500202F33 /* AppDelegate.swift in Sources */,
 				E4B19066284085EA00202F33 /* PHAssetExtension.swift in Sources */,
 				E4B19038284064F500202F33 /* SceneDelegate.swift in Sources */,
