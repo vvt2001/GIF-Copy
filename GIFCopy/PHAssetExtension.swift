@@ -15,11 +15,7 @@ extension PHAsset{
             options.version = .original
             PHImageManager.default().requestAVAsset(forVideo: self, options: options, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
                 DispatchQueue.main.async {
-                    if let avAsset = asset {
-                        completionHandler(avAsset)
-                    } else {
-                        completionHandler(nil)
-                    }
+                    completionHandler(asset)
                 }
             })
         }
