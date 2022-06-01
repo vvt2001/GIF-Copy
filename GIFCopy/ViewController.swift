@@ -11,6 +11,9 @@ import Photos
 
 class ViewController: UIViewController {
     @IBOutlet private weak var videoView: UIView!
+    @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet private weak var tabBarCollectionView: UICollectionView!
+    @IBOutlet private weak var saveButton: UIButton!
     
     private var videoPHAssets = [PHAsset]()
     private var videoAVAsset: AVAsset?

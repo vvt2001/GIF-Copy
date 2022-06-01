@@ -8,8 +8,8 @@
 import UIKit
 
 class TabBarCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var optionLabelView: UILabel!
+    @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet private weak var optionLabelView: UILabel!
     
     let optionLabelArray = ["Canvas","Trim","Speed","Add more","Effect","Filter","Sticker","Text","Frame","Background","Painting","Adjust","Reorder"]
     let iconFileNameArray = ["crop","cut","speed","add item","effect","filter","sticker","text","frame","background","painting","Adjust","reorder"]
