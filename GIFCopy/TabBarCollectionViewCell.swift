@@ -21,5 +21,5 @@ class TabBarCollectionViewCell: UICollectionViewCell {
         self.iconImageView.image = UIImage(named: iconFileNameArray[index])
         self.optionLabelView.text = optionLabelArray[index]
     }
-
+    
 }

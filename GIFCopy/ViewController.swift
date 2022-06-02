@@ -19,6 +19,22 @@ class ViewController: UIViewController {
     private var videoAVAsset: AVAsset?
     private var playerLooper: AVPlayerLooper?
     
+    private var controlView = ControlView().loadView() as! ControlView
+    
+    func animateShow(view: UIView){
+        UIView.animate(withDuration: 0.5, animations: {
+            view.transform = CGAffineTransform(translationX: 0, y: -(view.bounds.height))
+        }, completion: nil)
+    }
+    
+    func animateHide(view: UIView){
+        UIView.animate(withDuration: 0.5, animations: {
+            view.transform = CGAffineTransform(translationX: 0, y: 0)
+        }, completion: nil)
+    }
+    
+
+    
     func setupLoopVideoView(){
         let randomVideoAssets = self.videoPHAssets.randomElement()
         randomVideoAssets?.getAVAsset(completionHandler: { asset in
@@ -30,7 +46,7 @@ class ViewController: UIViewController {
             //setup player layer layout
             playerLayer.frame = self.videoView.bounds
             playerLayer.videoGravity = .resize
-            self.videoView.layer.addSublayer(playerLayer)
+            self.videoView.layer.insertSublayer(playerLayer, at: 0)
             
             //loop with queue player
             self.playerLooper = AVPlayerLooper(player: randomVideoPlayer, templateItem: playerItem)
@@ -49,21 +65,37 @@ class ViewController: UIViewController {
                 }
                 DispatchQueue.main.async {
                     self.setupLoopVideoView()
+                    self.setupCollectionViews()
+
                 }
             }
         }
     }
     
+
     private func setupCollectionViews(){
         tabBarCollectionView.delegate = self
         tabBarCollectionView.dataSource = self
         self.tabBarCollectionView.register(UINib(nibName: "TabBarCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "TabBarCollectionViewCell")
     }
+    
+    private func setupControlView(){
+        controlView.delegate = self
+//        controlView = (Bundle.main.loadNibNamed("ControlView", owner: nil, options: nil)?.first as? ControlView)!
+        videoView.insertSubview(controlView, at: 0)
+        controlView.isHidden = true
+        controlView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([controlView.leftAnchor.constraint(equalTo: videoView.leftAnchor),controlView.rightAnchor.constraint(equalTo: videoView.rightAnchor),controlView.bottomAnchor.constraint(equalTo: videoView.bottomAnchor)])
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         loadAssetFromPhotos()
-        setupCollectionViews()
+        setupControlView()
+
     }
 }
 
@@ -84,5 +116,23 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         return CGSize(width: size, height: size)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == tabBarCollectionView{
+            if indexPath.row == 11{
+                controlView.isHidden = false
+                collectionView.isHidden = true
+            }
+        }
+        else{
+            
+        }
+    }
     
+}
+
+// MARK: - ControlViewDelegate
+extension ViewController: ControlViewDelegate{
+    func controlView(_ view: UIView, didTapAtCancelButton bool: Bool) {
+        tabBarCollectionView.isHidden = false
+    }
 }
