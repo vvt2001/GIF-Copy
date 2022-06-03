@@ -81,7 +81,6 @@ class ViewController: UIViewController {
     
     private func setupControlView(){
         controlView.delegate = self
-//        controlView = (Bundle.main.loadNibNamed("ControlView", owner: nil, options: nil)?.first as? ControlView)!
         videoView.insertSubview(controlView, at: 0)
         controlView.isHidden = true
         controlView.translatesAutoresizingMaskIntoConstraints = false
@@ -112,22 +111,16 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = collectionView.bounds.height - 12
+        let size = collectionView.bounds.height
         return CGSize(width: size, height: size)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == tabBarCollectionView{
-            if indexPath.row == 11{
-                controlView.isHidden = false
-                collectionView.isHidden = true
-            }
-        }
-        else{
-            
+        if indexPath.row == 11{
+            controlView.isHidden = false
+            collectionView.isHidden = true
         }
     }
-    
 }
 
 // MARK: - ControlViewDelegate
