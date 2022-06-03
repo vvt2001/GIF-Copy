@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             
             //setup player layer layout
             playerLayer.frame = self.videoView.bounds
-            playerLayer.videoGravity = .resize
+            playerLayer.videoGravity = .resizeAspect
             self.videoView.layer.insertSublayer(playerLayer, at: 0)
             
             //loop with queue player

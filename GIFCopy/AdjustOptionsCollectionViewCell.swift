@@ -8,34 +8,57 @@
 import UIKit
 
 class AdjustOptionsCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
     
+    var scrollValue: Double! = 0
+    var shapeLayer = CAShapeLayer()
+
     let iconFileNameArray = ["brightness","contrast","saturation","clarity","shadow","highlight","sharpness"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         createProgressBar()
-        
+    }
+    
+    func changeCellToImage(){
+        iconImageView.isHidden = false
+        valueLabel.isHidden = true
+    }
+    
+    func changeCellToValue(){
+        valueLabel.text = "\(Int(scrollValue*100))"
+        iconImageView.isHidden = true
+        valueLabel.isHidden = false
+    }
+    
+    func changeStrokeWithAnimation(value: Double){
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.toValue = value
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        shapeLayer.add(animation, forKey: "")
+        scrollValue = value
+        self.valueLabel.text = "\(Int(value*100))"
     }
     
     func createProgressBar(){
-        let shapeLayer = CAShapeLayer()
         shapeLayer.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         let center = self.center
-        let circularPath = UIBezierPath(arcCenter: center, radius: self.bounds.width/2 - 3, startAngle: 0, endAngle: 2*CGFloat.pi, clockwise: true)
+        var circularPath: UIBezierPath
+        circularPath = UIBezierPath(arcCenter: center, radius: self.bounds.width/2 - 5, startAngle: -CGFloat.pi/2, endAngle: 3/2*CGFloat.pi, clockwise: true)
+        
         shapeLayer.path = circularPath.cgPath
-        shapeLayer.backgroundColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = UIColor.red.cgColor
         shapeLayer.lineWidth = 2
+        shapeLayer.strokeEnd = scrollValue
         
         self.layer.insertSublayer(shapeLayer, at: 0)
-        
     }
     
     func createCell(index: Int){
         self.iconImageView.image = UIImage(named: iconFileNameArray[index])
-//        self.iconImageView.layer.cornerRadius = self.iconImageView.bounds.width/2
         self.layer.cornerRadius = self.bounds.width/2
     }
 }
