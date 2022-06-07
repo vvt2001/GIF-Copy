@@ -71,6 +71,11 @@ class ControlView: UIView{
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setupRulerSliderView()
         setButtonEdgesRound()
         setupAdjustOptionsCollectionView()
