@@ -8,8 +8,8 @@
 import UIKit
 
 class AdjustOptionsCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var valueLabel: UILabel!
-    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet private weak var valueLabel: UILabel!
+    @IBOutlet private weak var iconImageView: UIImageView!
     
     var scrollValue: Double! = 0
     var shapeLayer = CAShapeLayer()
