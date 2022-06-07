@@ -94,23 +94,17 @@ extension ControlView: UIScrollViewDelegate {
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView == adjustOptionsCollectionView{
-            if !decelerate {
-                snapToCenter()
-            }
+        if !decelerate, scrollView == adjustOptionsCollectionView{
+            snapToCenter()
         }
-        else{
-            if let cell = adjustOptionsCollectionView.cellForItem(at: currentOptionIndexPath) as? AdjustOptionsCollectionViewCell{
-                cell.changeCellToImage()
-            }
+        if scrollView == rulerSliderScrollView, let cell = adjustOptionsCollectionView.cellForItem(at: currentOptionIndexPath) as? AdjustOptionsCollectionViewCell{
+            cell.changeCellToImage()
         }
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        if scrollView == rulerSliderScrollView{
-            if let cell = adjustOptionsCollectionView.cellForItem(at: currentOptionIndexPath) as? AdjustOptionsCollectionViewCell{
-                cell.changeCellToValue()
-            }
+        if scrollView == rulerSliderScrollView, let cell = adjustOptionsCollectionView.cellForItem(at: currentOptionIndexPath) as? AdjustOptionsCollectionViewCell{
+            cell.changeCellToValue()
         }
     }
     
