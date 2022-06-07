@@ -16,7 +16,7 @@ class ControlView: UIView{
     @IBOutlet private weak var adjustOptionsCollectionView: UICollectionView!
     @IBOutlet private weak var indicatorView: UIView!
     
-    var delegate: ControlViewDelegate?
+    weak var delegate: ControlViewDelegate?
     var currentOptionIndexPath = IndexPath(row: 0, section: 0)
     
     @IBAction func tapCancelButton(_ sender: UIButton){
@@ -141,6 +141,6 @@ extension ControlView: UICollectionViewDelegate, UICollectionViewDataSource{
     }
 }
 
-protocol ControlViewDelegate{
+protocol ControlViewDelegate: AnyObject{
     func controlView(_ view: UIView, didTapAtCancelButton bool: Bool)
 }
