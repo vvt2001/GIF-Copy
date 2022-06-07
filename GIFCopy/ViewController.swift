@@ -196,7 +196,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
 
 // MARK: - ControlViewDelegate
 extension ViewController: ControlViewDelegate{
-    func controlView(_ view: UIView, didTapAtCancelButton bool: Bool) {
+    func controlView(_ view: UIView) {
         animateShowTabBar()
     }
 }

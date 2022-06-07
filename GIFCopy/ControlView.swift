@@ -20,7 +20,7 @@ class ControlView: UIView{
     var currentOptionIndexPath = IndexPath(row: 0, section: 0)
     
     @IBAction func tapCancelButton(_ sender: UIButton){
-        delegate?.controlView(self, didTapAtCancelButton: true)
+        delegate?.controlView(self)
     }
     
     static func loadView() -> ControlView{
@@ -142,5 +142,5 @@ extension ControlView: UICollectionViewDelegate, UICollectionViewDataSource{
 }
 
 protocol ControlViewDelegate: AnyObject{
-    func controlView(_ view: UIView, didTapAtCancelButton bool: Bool)
+    func controlView(_ view: UIView)
 }
