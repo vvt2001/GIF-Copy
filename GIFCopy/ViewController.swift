@@ -96,21 +96,17 @@ class ViewController: UIViewController {
     }
     
     private func addBackgroundGradient(){
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: videoView.bounds.width, height: videoView.bounds.height))
-        
         let bottomGradient = CAGradientLayer()
         bottomGradient.frame = view.frame
         bottomGradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
-        bottomGradient.locations = [0.6, 1.0]
-        view.layer.insertSublayer(bottomGradient, at: 0)
+        bottomGradient.locations = [0.7, 1.0]
+        videoView.layer.insertSublayer(bottomGradient, at: 0)
         
         let topGradient = CAGradientLayer()
         topGradient.frame = view.frame
         topGradient.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
         topGradient.locations = [0, 0.05]
-        view.layer.insertSublayer(topGradient, at: 0)
-        
-        videoView.insertSubview(view, at: 0)
+        videoView.layer.insertSublayer(topGradient, at: 0)
     }
     
     private func showAlert(index: Int){
