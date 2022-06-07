@@ -21,15 +21,19 @@ class ViewController: UIViewController {
     
     private var controlView = ControlView().loadView() as! ControlView
     
-    func animateShow(view: UIView){
+    func animateShowTabBar(){
+        tabBarCollectionView.isHidden = false
         UIView.animate(withDuration: 0.5, animations: {
-            view.transform = CGAffineTransform(translationX: 0, y: -(view.bounds.height))
+            self.tabBarCollectionView.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.controlView.transform = CGAffineTransform(translationX: 0, y: 0)
         }, completion: nil)
     }
     
-    func animateHide(view: UIView){
+    func animateShowControlView(){
+        controlView.isHidden = false
         UIView.animate(withDuration: 0.5, animations: {
-            view.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.tabBarCollectionView.transform = CGAffineTransform(translationX: 0, y: (self.tabBarCollectionView.bounds.height))
+            self.controlView.transform = CGAffineTransform(translationX: 0, y: -(self.controlView.bounds.height))
         }, completion: nil)
     }
     
@@ -85,7 +89,7 @@ class ViewController: UIViewController {
         controlView.isHidden = true
         controlView.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([controlView.leftAnchor.constraint(equalTo: videoView.leftAnchor),controlView.rightAnchor.constraint(equalTo: videoView.rightAnchor),controlView.bottomAnchor.constraint(equalTo: videoView.bottomAnchor)])
+        NSLayoutConstraint.activate([controlView.leftAnchor.constraint(equalTo: videoView.leftAnchor),controlView.rightAnchor.constraint(equalTo: videoView.rightAnchor),controlView.topAnchor.constraint(equalTo: videoView.bottomAnchor)])
     }
     
     override func viewDidLoad() {
@@ -112,13 +116,62 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = collectionView.bounds.height
-        return CGSize(width: size, height: size)
+        return CGSize(width: size+8, height: size)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 11{
-            controlView.isHidden = false
-            collectionView.isHidden = true
+            animateShowControlView()
+        }
+        else{
+            var title = String()
+            var message = String()
+            
+            switch indexPath.row{
+            case 0:
+                title = "Canvas"
+                message = "You have pressed Canvas"
+            case 1:
+                title = "Trim"
+                message = "You have pressed Trim"
+            case 2:
+                title = "Speed"
+                message = "You have pressed Speed"
+            case 3:
+                title = "Add more"
+                message = "You have pressed Add more"
+            case 4:
+                title = "Effect"
+                message = "You have pressed Effect"
+            case 5:
+                title = "Filter"
+                message = "You have pressed Filter"
+            case 6:
+                title = "Sticker"
+                message = "You have pressed Sticker"
+            case 7:
+                title = "Text"
+                message = "You have pressed Text"
+            case 8:
+                title = "Frame"
+                message = "You have pressed Frame"
+            case 9:
+                title = "Background"
+                message = "You have pressed Background"
+            case 10:
+                title = "Painting"
+                message = "You have pressed Painting"
+            case 12:
+                title = "Reorder"
+                message = "You have pressed Reorder"
+            default:
+                break
+            }
+            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }
@@ -126,6 +179,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
 // MARK: - ControlViewDelegate
 extension ViewController: ControlViewDelegate{
     func controlView(_ view: UIView, didTapAtCancelButton bool: Bool) {
-        tabBarCollectionView.isHidden = false
+        animateShowTabBar()
     }
 }

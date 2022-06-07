@@ -20,7 +20,6 @@ class ControlView: UIView{
     var currentOptionIndexPath = IndexPath(row: 0, section: 0)
     
     @IBAction func tapCancelButton(_ sender: UIButton){
-        self.isHidden = true
         delegate?.controlView(self, didTapAtCancelButton: true)
     }
     
