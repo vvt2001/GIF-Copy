@@ -23,11 +23,11 @@ class ControlView: UIView{
         delegate?.controlView(self, didTapAtCancelButton: true)
     }
     
-    func loadView() -> UIView{
-        let bundleName = Bundle(for: type(of: self))
-        let nibName = String(describing: type(of: self))
+    static func loadView() -> ControlView{
+        let bundleName = Bundle(for: self)
+        let nibName = String(describing: self)
         let nib = UINib(nibName: nibName, bundle: bundleName)
-        let view = nib.instantiate(withOwner: nil, options: nil).first as! UIView
+        let view = nib.instantiate(withOwner: nil, options: nil).first as! ControlView
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }

@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     private var videoAVAsset: AVAsset?
     private var playerLooper: AVPlayerLooper?
     
-    private var controlView = ControlView().loadView() as! ControlView
+    private var controlView = ControlView.loadView() 
     
     func animateShowTabBar(){
         tabBarCollectionView.isHidden = false
