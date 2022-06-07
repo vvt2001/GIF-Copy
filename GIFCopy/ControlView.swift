@@ -18,6 +18,7 @@ class ControlView: UIView{
     
     weak var delegate: ControlViewDelegate?
     var currentOptionIndexPath = IndexPath(row: 0, section: 0)
+    let iconFileNames = ["brightness","contrast","saturation","clarity","shadow","highlight","sharpness"]
     
     @IBAction func tapCancelButton(_ sender: UIButton){
         delegate?.controlView(self)
@@ -131,7 +132,7 @@ extension ControlView: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdjustOptionsCollectionViewCell", for: indexPath) as! AdjustOptionsCollectionViewCell
-        cell.createCell(index: indexPath.row)
+        cell.createCell(index: indexPath.row, iconFileName: iconFileNames[indexPath.row])
         return cell
     }
     

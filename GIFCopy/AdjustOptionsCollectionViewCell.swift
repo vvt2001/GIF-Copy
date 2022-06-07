@@ -13,8 +13,6 @@ class AdjustOptionsCollectionViewCell: UICollectionViewCell {
     
     var scrollValue: Double! = 0
     var shapeLayer = CAShapeLayer()
-
-    let iconFileNameArray = ["brightness","contrast","saturation","clarity","shadow","highlight","sharpness"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -57,8 +55,8 @@ class AdjustOptionsCollectionViewCell: UICollectionViewCell {
         self.layer.insertSublayer(shapeLayer, at: 0)
     }
     
-    func createCell(index: Int){
-        self.iconImageView.image = UIImage(named: iconFileNameArray[index])
+    func createCell(index: Int, iconFileName: String){
+        self.iconImageView.image = UIImage(named: iconFileName)
         self.layer.cornerRadius = self.bounds.width/2
     }
 }
