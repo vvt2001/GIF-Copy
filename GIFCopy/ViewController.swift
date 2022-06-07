@@ -35,8 +35,8 @@ class ViewController: UIViewController {
     func animateShowControlView(){
         controlView.isHidden = false
         UIView.animate(withDuration: 0.5, animations: {
-            self.tabBarCollectionView.transform = CGAffineTransform(translationX: 0, y: (self.tabBarCollectionView.bounds.height))
-            self.controlView.transform = CGAffineTransform(translationX: 0, y: -(self.controlView.bounds.height))
+            self.tabBarCollectionView.transform = CGAffineTransform(translationX: 0, y: (self.tabBarCollectionView.bounds.height)*1.5)
+            self.controlView.transform = CGAffineTransform(translationX: 0, y: -(self.controlView.bounds.height)*1.5)
         }, completion: nil)
     }
     
@@ -92,7 +92,7 @@ class ViewController: UIViewController {
         controlView.isHidden = true
         controlView.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([controlView.leftAnchor.constraint(equalTo: videoView.leftAnchor),controlView.rightAnchor.constraint(equalTo: videoView.rightAnchor),controlView.topAnchor.constraint(equalTo: videoView.bottomAnchor)])
+        NSLayoutConstraint.activate([controlView.leftAnchor.constraint(equalTo: videoView.leftAnchor),controlView.rightAnchor.constraint(equalTo: videoView.rightAnchor),controlView.topAnchor.constraint(equalTo: videoView.bottomAnchor, constant: (self.controlView.bounds.height)*0.5)])
     }
     
     private func addBackgroundGradient(){
