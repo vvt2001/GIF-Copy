@@ -92,13 +92,31 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([controlView.leftAnchor.constraint(equalTo: videoView.leftAnchor),controlView.rightAnchor.constraint(equalTo: videoView.rightAnchor),controlView.topAnchor.constraint(equalTo: videoView.bottomAnchor)])
     }
     
+    private func addBackgroundGradient(){
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: videoView.bounds.width, height: videoView.bounds.height))
+        
+        let bottomGradient = CAGradientLayer()
+        bottomGradient.frame = view.frame
+        bottomGradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        bottomGradient.locations = [0.6, 1.0]
+        view.layer.insertSublayer(bottomGradient, at: 0)
+        
+        let topGradient = CAGradientLayer()
+        topGradient.frame = view.frame
+        topGradient.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
+        topGradient.locations = [0, 0.05]
+        view.layer.insertSublayer(topGradient, at: 0)
+        
+        videoView.insertSubview(view, at: 0)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         loadAssetFromPhotos()
         setupControlView()
-
+        addBackgroundGradient()
     }
 }
 
