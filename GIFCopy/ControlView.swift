@@ -35,7 +35,6 @@ class ControlView: UIView{
     
     private func setupRulerSliderView(){
         let indicesView = RulerIndicesView(frame: CGRect(x: 0, y: 0, width: 1355, height: rulerSliderScrollView.frame.height))
-        indicesView.superviewHeight = Int(rulerSliderScrollView.frame.height)
         rulerSliderScrollView.contentSize = CGSize(width: 1355, height: 1)
         indicesView.backgroundColor = UIColor.black
         rulerSliderScrollView.layer.cornerRadius = 5
