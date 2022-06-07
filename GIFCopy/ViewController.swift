@@ -113,6 +113,15 @@ class ViewController: UIViewController {
         videoView.insertSubview(view, at: 0)
     }
     
+    private func showAlert(index: Int){
+        let title = optionLabels[index]
+        let message = "You have pressed " + title
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -145,54 +154,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             animateShowControlView()
         }
         else{
-            var title = String()
-            var message = String()
-            
-            switch indexPath.row{
-            case 0:
-                title = "Canvas"
-                message = "You have pressed Canvas"
-            case 1:
-                title = "Trim"
-                message = "You have pressed Trim"
-            case 2:
-                title = "Speed"
-                message = "You have pressed Speed"
-            case 3:
-                title = "Add more"
-                message = "You have pressed Add more"
-            case 4:
-                title = "Effect"
-                message = "You have pressed Effect"
-            case 5:
-                title = "Filter"
-                message = "You have pressed Filter"
-            case 6:
-                title = "Sticker"
-                message = "You have pressed Sticker"
-            case 7:
-                title = "Text"
-                message = "You have pressed Text"
-            case 8:
-                title = "Frame"
-                message = "You have pressed Frame"
-            case 9:
-                title = "Background"
-                message = "You have pressed Background"
-            case 10:
-                title = "Painting"
-                message = "You have pressed Painting"
-            case 12:
-                title = "Reorder"
-                message = "You have pressed Reorder"
-            default:
-                break
-            }
-            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-
-            self.present(alert, animated: true, completion: nil)
+            showAlert(index: indexPath.row)
         }
     }
 }
