@@ -60,7 +60,7 @@ class ControlView: UIView{
     
     private func updateAdjustOptionCollectionView(selectedIndexPath: IndexPath){
         currentOptionIndexPath = selectedIndexPath
-        for index in 0...6{
+        for index in 0...iconFileNames.count-1{
             if index != selectedIndexPath.row{
                 if let remainCell = adjustOptionsCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? AdjustOptionsCollectionViewCell
                 {
@@ -127,7 +127,7 @@ extension ControlView: UIScrollViewDelegate {
 
 extension ControlView: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return iconFileNames.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
