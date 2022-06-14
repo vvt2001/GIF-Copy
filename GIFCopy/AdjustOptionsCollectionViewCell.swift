@@ -55,7 +55,7 @@ class AdjustOptionsCollectionViewCell: UICollectionViewCell {
         self.layer.insertSublayer(shapeLayer, at: 0)
     }
     
-    func createCell(index: Int, iconFileName: String){
+    func createCell(iconFileName: String){
         self.iconImageView.image = UIImage(named: iconFileName)
         self.layer.cornerRadius = self.bounds.width/2
     }

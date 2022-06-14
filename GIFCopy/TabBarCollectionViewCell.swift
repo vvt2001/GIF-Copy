@@ -16,7 +16,7 @@ class TabBarCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func createCell(index: Int, iconFileName: String, optionLabel: String){
+    func createCell(iconFileName: String, optionLabel: String){
         self.iconImageView.image = UIImage(named: iconFileName)
         self.optionLabelView.text = optionLabel
     }

@@ -136,7 +136,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabBarCollectionViewCell", for: indexPath) as! TabBarCollectionViewCell
-        cell.createCell(index: indexPath.row, iconFileName: iconFileNames[indexPath.row], optionLabel: optionLabels[indexPath.row])
+        cell.createCell(iconFileName: iconFileNames[indexPath.row], optionLabel: optionLabels[indexPath.row])
         return cell
     }
     

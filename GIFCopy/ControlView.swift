@@ -130,7 +130,7 @@ extension ControlView: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdjustOptionsCollectionViewCell", for: indexPath) as! AdjustOptionsCollectionViewCell
-        cell.createCell(index: indexPath.row, iconFileName: iconFileNames[indexPath.row])
+        cell.createCell(iconFileName: iconFileNames[indexPath.row])
         return cell
     }
     
