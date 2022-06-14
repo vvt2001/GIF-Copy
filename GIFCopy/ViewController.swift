@@ -19,8 +19,8 @@ class ViewController: UIViewController {
     private var videoAVAsset: AVAsset?
     private var playerLooper: AVPlayerLooper?
     
-    let optionLabels = ["Canvas","Trim","Speed","Add more","Effect","Filter","Sticker","Text","Frame","Background","Painting","Adjust","Reorder"]
-    let iconFileNames = ["crop","cut","speed","add item","effect","filter","sticker","text","frame","background","painting","Adjust","reorder"]
+    let optionLabelsArray = ["Canvas","Trim","Speed","Add more","Effect","Filter","Sticker","Text","Frame","Background","Painting","Adjust","Reorder"]
+    let iconFileNamesArray = ["crop","cut","speed","add item","effect","filter","sticker","text","frame","background","painting","Adjust","reorder"]
     
     private var controlView = ControlView.loadView() 
     
@@ -110,7 +110,7 @@ class ViewController: UIViewController {
     }
     
     private func showAlert(index: Int){
-        let title = optionLabels[index]
+        let title = optionLabelsArray[index]
         let message = "You have pressed " + title
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -131,12 +131,12 @@ class ViewController: UIViewController {
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return optionLabels.count
+        return optionLabelsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabBarCollectionViewCell", for: indexPath) as! TabBarCollectionViewCell
-        cell.createCell(iconFileName: iconFileNames[indexPath.row], optionLabel: optionLabels[indexPath.row])
+        cell.createCell(iconFileName: iconFileNamesArray[indexPath.row], optionLabel: optionLabelsArray[indexPath.row])
         return cell
     }
     

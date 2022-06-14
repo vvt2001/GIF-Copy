@@ -18,7 +18,7 @@ class ControlView: UIView{
     
     weak var delegate: ControlViewDelegate?
     var currentOptionIndexPath = IndexPath(row: 0, section: 0)
-    let iconFileNames = ["brightness","contrast","saturation","clarity","shadow","highlight","sharpness"]
+    let iconFileNamesArray = ["brightness","contrast","saturation","clarity","shadow","highlight","sharpness"]
     
     @IBAction func tapCancelButton(_ sender: UIButton){
         delegate?.controlViewDidTouchCloseButton(self)
@@ -59,7 +59,7 @@ class ControlView: UIView{
     
     private func updateAdjustOptionCollectionView(selectedIndexPath: IndexPath){
         currentOptionIndexPath = selectedIndexPath
-        for index in 0...iconFileNames.count-1{
+        for index in 0...iconFileNamesArray.count-1{
             if index != selectedIndexPath.row{
                 if let remainCell = adjustOptionsCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? AdjustOptionsCollectionViewCell
                 {
@@ -125,12 +125,12 @@ extension ControlView: UIScrollViewDelegate {
 
 extension ControlView: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return iconFileNames.count
+        return iconFileNamesArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AdjustOptionsCollectionViewCell", for: indexPath) as! AdjustOptionsCollectionViewCell
-        cell.createCell(iconFileName: iconFileNames[indexPath.row])
+        cell.createCell(iconFileName: iconFileNamesArray[indexPath.row])
         return cell
     }
     
