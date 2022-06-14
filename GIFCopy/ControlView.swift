@@ -21,7 +21,7 @@ class ControlView: UIView{
     let iconFileNames = ["brightness","contrast","saturation","clarity","shadow","highlight","sharpness"]
     
     @IBAction func tapCancelButton(_ sender: UIButton){
-        delegate?.controlView(self)
+        delegate?.controlViewDidTouchCloseButton(self)
     }
     
     static func loadView() -> ControlView{
@@ -141,5 +141,5 @@ extension ControlView: UICollectionViewDelegate, UICollectionViewDataSource{
 }
 
 protocol ControlViewDelegate: AnyObject{
-    func controlView(_ view: UIView)
+    func controlViewDidTouchCloseButton(_ view: UIView)
 }

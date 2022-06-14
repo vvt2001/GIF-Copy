@@ -157,7 +157,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
 
 // MARK: - ControlViewDelegate
 extension ViewController: ControlViewDelegate{
-    func controlView(_ view: UIView) {
+    func controlViewDidTouchCloseButton(_ view: UIView) {
         animateShowTabBar()
     }
 }
