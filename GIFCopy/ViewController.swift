@@ -99,7 +99,7 @@ class ViewController: UIViewController {
         let bottomGradient = CAGradientLayer()
         bottomGradient.frame = view.frame
         bottomGradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
-        bottomGradient.locations = [0.7, 1.0]
+        bottomGradient.locations = [0.9, 1.0]
         videoView.layer.insertSublayer(bottomGradient, at: 0)
         
         let topGradient = CAGradientLayer()
@@ -124,6 +124,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         loadAssetFromPhotos()
         setupControlView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         addBackgroundGradient()
     }
 }
