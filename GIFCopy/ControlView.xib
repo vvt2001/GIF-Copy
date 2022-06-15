@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ControlView" customModule="GIFCopy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="164"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yr-Jh-nx5">
+                    <rect key="frame" x="10" y="116.5" width="394" height="37.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37.5" id="Xa5-Kz-abg"/>
+                    </constraints>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAu-b3-Kmb">
+                    <rect key="frame" x="12" y="12" width="31" height="31"/>
+                    <color key="backgroundColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="4Pe-tI-Mmo"/>
+                        <constraint firstAttribute="width" constant="31" id="vIf-zL-4ir"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="">
+                        <imageReference key="image" image="xmark" catalog="system" symbolScale="default"/>
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="tapCancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="Bcg-e0-SYa"/>
+                    </connections>
+                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A4p-TT-xK3">
+                    <rect key="frame" x="10" y="53" width="394" height="53.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="53.5" id="Hrm-g1-GK2"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="GG4-Nw-kOs">
+                        <size key="itemSize" width="53.5" height="53.5"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VP5-qA-LkR">
+                    <rect key="frame" x="371" y="12" width="31" height="31"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="10D-z3-6DO"/>
+                        <constraint firstAttribute="width" constant="31" id="Mve-25-hsq"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="">
+                        <imageReference key="image" image="checkmark" catalog="system" symbolScale="default"/>
+                        <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="tapCancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="OlF-Ce-b1c"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5Q-Io-JDm">
+                    <rect key="frame" x="205.5" y="116.5" width="3" height="37.5"/>
+                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="3" id="ZuW-fo-EnU"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="5yr-Jh-nx5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="5qZ-jz-hUH"/>
+                <constraint firstAttribute="trailing" secondItem="VP5-qA-LkR" secondAttribute="trailing" constant="12" id="9gV-I8-3xh"/>
+                <constraint firstItem="A4p-TT-xK3" firstAttribute="top" secondItem="rAu-b3-Kmb" secondAttribute="bottom" constant="10" id="9oI-Yg-tmM"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="A4p-TT-xK3" secondAttribute="trailing" constant="10" id="Bqn-83-HvX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5yr-Jh-nx5" secondAttribute="trailing" constant="10" id="FBl-ED-JTi"/>
+                <constraint firstItem="A4p-TT-xK3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="MVp-aZ-HR1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5yr-Jh-nx5" secondAttribute="bottom" constant="10" id="Q99-oI-VKP"/>
+                <constraint firstItem="VP5-qA-LkR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="SCa-TS-KpD"/>
+                <constraint firstItem="5yr-Jh-nx5" firstAttribute="top" secondItem="A4p-TT-xK3" secondAttribute="bottom" constant="10" id="YQs-Hi-LSS"/>
+                <constraint firstItem="P5Q-Io-JDm" firstAttribute="centerX" secondItem="5yr-Jh-nx5" secondAttribute="centerX" id="j7J-DY-Cay"/>
+                <constraint firstItem="rAu-b3-Kmb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="12" id="lW6-kc-fPs"/>
+                <constraint firstItem="rAu-b3-Kmb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="qN6-nU-8h8"/>
+                <constraint firstItem="P5Q-Io-JDm" firstAttribute="top" secondItem="5yr-Jh-nx5" secondAttribute="top" id="tDp-Te-oyk"/>
+                <constraint firstItem="P5Q-Io-JDm" firstAttribute="height" secondItem="5yr-Jh-nx5" secondAttribute="height" id="y1e-fn-ln6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="adjustOptionsCollectionView" destination="A4p-TT-xK3" id="EE9-BQ-t6b"/>
+                <outlet property="cancelButton" destination="rAu-b3-Kmb" id="ebB-Lk-K5k"/>
+                <outlet property="confirmButton" destination="VP5-qA-LkR" id="geS-gB-bca"/>
+                <outlet property="indicatorView" destination="P5Q-Io-JDm" id="xGE-IC-emE"/>
+                <outlet property="rulerSliderScrollView" destination="5yr-Jh-nx5" id="kIG-Ys-0R9"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="79.6875"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
