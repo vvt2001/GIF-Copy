@@ -109,8 +109,8 @@ class ViewController: UIViewController {
     }
     
     private func modifyBackgroundGradient(){
-        topGradient.frame = view.frame
-        bottomGradient.frame = view.frame
+        topGradient.frame = videoView.bounds
+        bottomGradient.frame = videoView.bounds
     }
     
     private func showAlert(index: Int){
