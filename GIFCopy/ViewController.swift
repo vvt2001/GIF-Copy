@@ -24,6 +24,9 @@ class ViewController: UIViewController {
     
     private var controlView = ControlView.loadView() 
     
+    let bottomGradient = CAGradientLayer()
+    let topGradient = CAGradientLayer()
+    
     func animateShowTabBar(){
         tabBarCollectionView.isHidden = false
         UIView.animate(withDuration: 0.5, animations: {
@@ -96,17 +99,18 @@ class ViewController: UIViewController {
     }
     
     private func addBackgroundGradient(){
-        let bottomGradient = CAGradientLayer()
-        bottomGradient.frame = view.frame
         bottomGradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
         bottomGradient.locations = [0.9, 1.0]
         videoView.layer.insertSublayer(bottomGradient, at: 0)
         
-        let topGradient = CAGradientLayer()
-        topGradient.frame = view.frame
         topGradient.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
         topGradient.locations = [0, 0.05]
         videoView.layer.insertSublayer(topGradient, at: 0)
+    }
+    
+    private func modifyBackgroundGradient(){
+        topGradient.frame = view.frame
+        bottomGradient.frame = view.frame
     }
     
     private func showAlert(index: Int){
@@ -124,11 +128,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         loadAssetFromPhotos()
         setupControlView()
+        addBackgroundGradient()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        addBackgroundGradient()
+        modifyBackgroundGradient()
     }
 }
 
