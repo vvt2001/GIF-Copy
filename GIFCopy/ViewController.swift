@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     private var videoAVAsset: AVAsset?
     private var playerLooper: AVPlayerLooper?
     
-    let optionLabelsArray = ["Canvas","Trim","Speed","Add more","Effect","Filter","Sticker","Text","Frame","Background","Painting","Adjust","Reorder"]
+    let optionsNameArray = ["Canvas","Trim","Speed","Add more","Effect","Filter","Sticker","Text","Frame","Background","Painting","Adjust","Reorder"]
     let iconFileNamesArray = ["crop","cut","speed","add item","effect","filter","sticker","text","frame","background","painting","Adjust","reorder"]
     
     private var controlView = ControlView.loadView() 
@@ -110,7 +110,7 @@ class ViewController: UIViewController {
     }
     
     private func showAlert(index: Int){
-        let title = optionLabelsArray[index]
+        let title = optionsNameArray[index]
         let message = "You have pressed " + title
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -135,12 +135,12 @@ class ViewController: UIViewController {
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return optionLabelsArray.count
+        return optionsNameArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TabBarCollectionViewCell", for: indexPath) as! TabBarCollectionViewCell
-        cell.createCell(iconFileName: iconFileNamesArray[indexPath.row], optionLabel: optionLabelsArray[indexPath.row])
+        cell.createCell(iconFileName: iconFileNamesArray[indexPath.row], optionName: optionsNameArray[indexPath.row])
         return cell
     }
     
